@@ -6,7 +6,8 @@ using AcApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
-using mpMsg;
+using ModPlusAPI;
+using ModPlusAPI.Windows;
 
 
 namespace mpRemoveAnnotScale
@@ -16,6 +17,8 @@ namespace mpRemoveAnnotScale
         [CommandMethod("ModPlus", "mpRemoveAnnotScale", CommandFlags.UsePickSet)]
         public static void Main()
         {
+            Statistic.SendCommandStarting(new Interface());
+
             var doc = AcApp.DocumentManager.MdiActiveDocument;
             var db = doc.Database;
             var ed = doc.Editor;
@@ -68,7 +71,7 @@ namespace mpRemoveAnnotScale
             }
             catch (Exception ex)
             {
-                MpExWin.Show(ex);
+                ExceptionBox.Show(ex);
             }
         }
         private static void AddScale(DBObject ent, ObjectContext curScale, ObjectContextCollection occ)

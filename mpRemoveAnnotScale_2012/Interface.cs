@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ModPlusAPI.Interfaces;
 
 namespace mpRemoveAnnotScale
@@ -8,7 +9,9 @@ namespace mpRemoveAnnotScale
         public SupportedProduct SupportedProduct => SupportedProduct.AutoCAD;
         public string Name => "mpRemoveAnnotScale";
         public string AvailProductExternalVersion => "2012";
-        public string ClassName => string.Empty;
+        public string FullClassName => string.Empty;
+        public string AppFullClassName => string.Empty;
+        public Guid AddInId => Guid.Empty;
         public string LName => "Очистить масштабы";
         public string Description => "Очищает список аннотативных масштабов в выбранных аннотативных объектах, оставляя текущий масштаб";
         public string Author => "Пекшев Александр aka Modis";

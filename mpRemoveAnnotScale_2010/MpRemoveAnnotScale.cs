@@ -14,6 +14,7 @@ namespace mpRemoveAnnotScale
 {
     public class MpRemoveAnnotScale
     {
+        private const string LangItem = "mpRemoveAnnotScale";
         [CommandMethod("ModPlus", "mpRemoveAnnotScale", CommandFlags.UsePickSet)]
         public static void Main()
         {
@@ -29,7 +30,7 @@ namespace mpRemoveAnnotScale
                 {
                     var pso = new PromptSelectionOptions
                     {
-                        MessageForAdding = "\nВыберите объекты:"
+                        MessageForAdding = "\n" + Language.GetItem(LangItem, "msg1")
                     };
                     var psr = ed.GetSelection(pso);
                     if (psr.Status != PromptStatus.OK) return;

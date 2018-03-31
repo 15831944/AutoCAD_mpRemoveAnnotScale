@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpRemoveAnnotScale_2010", "mpRemoveAnnotScale_2010\mpRemoveAnnotScale_2010.csproj", "{352156DB-2F7A-41FE-8E12-94C2A7C4051F}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpRemoveAnnotScale_2017", "mpRemoveAnnotScale_2017\mpRemoveAnnotScale_2017.csproj", "{D8B0FAEA-9D32-4A8B-8335-818BD5BEA86C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpRemoveAnnotScale_2018", "mpRemoveAnnotScale_2018\mpRemoveAnnotScale_2018.csproj", "{38E4CEC7-66EB-4D84-8E02-9CBF0736A964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpRemoveAnnotScale_2019", "mpRemoveAnnotScale_2019\mpRemoveAnnotScale_2019.csproj", "{A8599143-98D4-4608-BA13-33DEA62C681A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,8 +65,15 @@ Global
 		{38E4CEC7-66EB-4D84-8E02-9CBF0736A964}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38E4CEC7-66EB-4D84-8E02-9CBF0736A964}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38E4CEC7-66EB-4D84-8E02-9CBF0736A964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8599143-98D4-4608-BA13-33DEA62C681A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8599143-98D4-4608-BA13-33DEA62C681A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8599143-98D4-4608-BA13-33DEA62C681A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8599143-98D4-4608-BA13-33DEA62C681A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B68FB527-1DAB-4233-9597-1EDB7D498826}
 	EndGlobalSection
 EndGlobal

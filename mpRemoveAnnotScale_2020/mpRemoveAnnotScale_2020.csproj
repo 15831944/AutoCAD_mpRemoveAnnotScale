@@ -1,23 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38E4CEC7-66EB-4D84-8E02-9CBF0736A964}</ProjectGuid>
+    <ProjectGuid>{B6472AC5-ACD6-4E4F-8892-762311B9BE6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>mpRemoveAnnotScale</RootNamespace>
-    <AssemblyName>mpRemoveAnnotScale_2018</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <AssemblyName>mpRemoveAnnotScale_2020</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;A2018</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;A2020</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -25,29 +26,21 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;A2018</DefineConstants>
+    <DefineConstants>TRACE;A2020</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="accoremgd">
-      <HintPath>C:\_Acad dlls\2018\accoremgd.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="acdbmgd">
-      <HintPath>C:\_Acad dlls\2018\acdbmgd.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="acmgd">
-      <HintPath>C:\_Acad dlls\2018\acmgd.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ModPlusAPI">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlusAPI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\mpRemoveAnnotScale_2013\ModPlusConnector.cs">
       <Link>ModPlusConnector.cs</Link>
@@ -60,16 +53,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\mpRemoveAnnotScale_2013\Resources\mpRemoveAnnotScale_16x16.png">
+    <Resource Include="..\mpremoveannotscale_2013\resources\mpRemoveAnnotScale_16x16.png">
       <Link>Resources\mpRemoveAnnotScale_16x16.png</Link>
     </Resource>
-    <Resource Include="..\mpRemoveAnnotScale_2013\Resources\mpRemoveAnnotScale_16x16_dark.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\mpremoveannotscale_2013\resources\mpRemoveAnnotScale_16x16_dark.png">
       <Link>Resources\mpRemoveAnnotScale_16x16_dark.png</Link>
     </Resource>
-    <Resource Include="..\mpRemoveAnnotScale_2013\Resources\mpRemoveAnnotScale_32x32.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\mpremoveannotscale_2013\resources\mpRemoveAnnotScale_32x32.png">
       <Link>Resources\mpRemoveAnnotScale_32x32.png</Link>
     </Resource>
-    <Resource Include="..\mpRemoveAnnotScale_2013\Resources\mpRemoveAnnotScale_32x32_dark.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\mpremoveannotscale_2013\resources\mpRemoveAnnotScale_32x32_dark.png">
       <Link>Resources\mpRemoveAnnotScale_32x32_dark.png</Link>
     </Resource>
   </ItemGroup>
@@ -82,11 +81,4 @@ if $(ConfigurationName) == Release (
 "$(ModPlusPostBuild)" "AutoCAD" "$(TargetPath)" "s"
 )</PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

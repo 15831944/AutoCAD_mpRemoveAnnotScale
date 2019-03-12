@@ -14,7 +14,7 @@ namespace mpRemoveAnnotScale
         [CommandMethod("ModPlus", "mpRemoveAnnotScale", CommandFlags.UsePickSet)]
         public static void Main()
         {
-            Statistic.SendCommandStarting(new Interface());
+            Statistic.SendCommandStarting(new ModPlusConnector());
 
             var doc = AcApp.DocumentManager.MdiActiveDocument;
             var db = doc.Database;

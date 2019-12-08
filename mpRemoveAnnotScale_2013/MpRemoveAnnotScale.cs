@@ -1,16 +1,16 @@
-﻿using AcApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
-using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.EditorInput;
-using Autodesk.AutoCAD.Runtime;
-using ModPlusAPI;
-using ModPlusAPI.Windows;
-
-
-namespace mpRemoveAnnotScale
+﻿namespace mpRemoveAnnotScale
 {
+    using Autodesk.AutoCAD.DatabaseServices;
+    using Autodesk.AutoCAD.EditorInput;
+    using Autodesk.AutoCAD.Runtime;
+    using ModPlusAPI;
+    using ModPlusAPI.Windows;
+    using AcApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
+
     public class MpRemoveAnnotScale
     {
         private const string LangItem = "mpRemoveAnnotScale";
+
         [CommandMethod("ModPlus", "mpRemoveAnnotScale", CommandFlags.UsePickSet)]
         public static void Main()
         {
@@ -29,28 +29,28 @@ namespace mpRemoveAnnotScale
                         MessageForAdding = "\n" + Language.GetItem(LangItem, "msg1")
                     };
                     var psr = ed.GetSelection(pso);
-                    if (psr.Status != PromptStatus.OK) return;
+                    if (psr.Status != PromptStatus.OK)
+                        return;
 
                     var cm = db.ObjectContextManager;
                     var occ = cm.GetContextCollection("ACDB_ANNOTATIONSCALES");
-                    var currentscale = occ.CurrentContext as AnnotationScale;
+                    var currentScale = occ.CurrentContext as AnnotationScale;
 
                     foreach (var objId in psr.Value.GetObjectIds())
                     {
                         using (var ent = tr.GetObject(objId, OpenMode.ForWrite, false, false))
                         {
-                            if (ent is MLeader)
+                            if (ent is MLeader ml)
                             {
-                                var ml = ent as MLeader;
                                 if (ml.Annotative == AnnotativeStates.True)
                                 {
-                                    AddScale(ml, currentscale, occ);
+                                    AddScale(ml, currentScale, occ);
                                     if (ml.ContentType == ContentType.MTextContent)
                                     {
-                                        MText mt = ml.MText;
+                                        var mt = ml.MText;
                                         if (mt.Annotative == AnnotativeStates.True)
                                         {
-                                            AddScale(mt, currentscale, occ);
+                                            AddScale(mt, currentScale, occ);
                                             ml.MText = mt;
                                         }
                                     }
@@ -59,10 +59,11 @@ namespace mpRemoveAnnotScale
                             else
                             {
                                 if (ent.Annotative == AnnotativeStates.True)
-                                    AddScale(ent, currentscale, occ);
+                                    AddScale(ent, currentScale, occ);
                             }
                         }
                     }
+
                     tr.Commit();
                 }
             }
@@ -71,6 +72,7 @@ namespace mpRemoveAnnotScale
                 ExceptionBox.Show(ex);
             }
         }
+
         private static void AddScale(DBObject ent, ObjectContext curScale, ObjectContextCollection occ)
         {
             ent.AddContext(curScale);

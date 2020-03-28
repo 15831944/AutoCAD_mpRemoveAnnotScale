@@ -7,7 +7,7 @@
     using ModPlusAPI.Windows;
     using AcApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 
-    public class MpRemoveAnnotScale
+    public class RemoveAnnotationScale
     {
         private const string LangItem = "mpRemoveAnnotScale";
 
